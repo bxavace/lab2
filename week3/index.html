@@ -5,6 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brylle Ace</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Blotter/0.1.0/blotter.min.js" integrity="sha512-Na4qwz8+Hb6JAVf8zFKtPri3XX/Z9/drSpFQuA9hUDnSYLFuu+GU0sfyDYw0SIUkvo/gSw//hCW/CjFJmIIc4Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Blotter/0.1.0/materials/liquidDistortMaterial.min.js" integrity="sha512-GrkvJ9sGocxZwnbbhWFPlMxIeFz6pJFZ3I3CFUpn7o7v8hROUyXxfgyB6bLYM8Z8W5J1e5Z91Y/PbNBpjhufCQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <style>
@@ -13,10 +17,11 @@
 </head>
 <body>
     <div id="parent_">
+        <div class="nav">
+        </div>
         <div>
             <div class="name"></div>
-            <!-- <h1><strong>Brylle Ace Nunez</strong></h1> -->
-            <p>is a <a class="anchorlink" href="https://i.redd.it/ku1neu504sh01.jpg" target="_blank"><em>back-end developer</em></a>, <em>researcher</em>, and <em>computer science student</em>.</p>
+            <p>is a <em>back-end developer</em>, <em>researcher</em>, and <em>computer science student</em>.</p>
         </div>
         <div>
             <p>Computer Science '26 @ Asia Pacific College 🐏</p>
@@ -26,7 +31,56 @@
                 <li>Research</li>
                 <li>Machine Learning</li>
                 <li>Distributed Computing</li>
+                <li>Physics!</li>
             </ul>
+        </div>
+        <div>
+            <h3>Why computer science?</h3>
+            <p>
+                Playing with various gaming devices and computers filled my childhood.
+                <br>
+                Limited by an old Pentium with 4GB of RAM, I learned to optimize my PC, mastering the art of squeezing modern games onto its shoulders. 
+                <br>
+                This early struggle sparked my passion for computer science, where I continue to seek creative solutions to complex problems.
+            </p>
+            <h3>Why digital forensics?</h3>
+            <p>
+                Job prospects of cyber security seems very promising, so I decided to major in cyber
+security.
+                <br>
+                <a href="https://xkcd.com/2176/" class="anchorlink"><em>Hacking</em></a> has always been a fascinating topic for me, and I want to learn more about it. Ever come across the <a class="anchorlink" href="https://www.youtube.com/watch?v=12d2zHtrhHU&pp=ygUVY2hlYXQgZW5naW5lIGZhY2Vib29r">cheat engine</a> era?
+                <br>
+                Besides, working with back-end systems is a lot of <em>fun</em>. And back-end involves a lot of security!
+            </p>
+            <h3>Miscellaneous</h3>
+            <p>
+                I like to listen to tranquil classical music while working. I onced played guitar, and now I'm interested in playing the piano and violin! I play <em>League of Legends</em> in my free time. I also like to read non-fiction and fiction books. I also hit the gym (hmu please.)!
+            </p>
+            <div>
+                <h3>Now playing...</h3>
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/3CtnuBSfdpoxHglOGGPgmU?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
+            <h3>Favorite Paolo Coelho Quote</h3>
+            <div class="quote_">
+                <blockquote>
+                    <em>People never learn anything by being told, they have to find out for themselves.</em>
+                </blockquote>
+            </div>
+        </div>
+        <h3>
+            <a class="anchorlink toggle" href="#dogs">Click me, if you dare!</a>
+        </h3>
+        <div class="toggle-content" id="dogs">
+            <div>
+                <figure>
+                    <img src="img/dalden.jpg" alt="Dalden" width="300px" height="500px">
+                    <figcaption><em>Dalden</em> said hi!</figcaption>
+                </figure>
+                <figure>
+                    <img src="img/temtem.jpg" alt="Temtem" width="300px" height="500px">
+                    <figcaption><em>Temtem</em> said hi!</figcaption>
+                </figure>
+            </div>
         </div>
     </div>
     </body>
@@ -52,11 +106,85 @@
         var scope = blotter.forText(text);
 
         scope.appendTo(document.querySelector(".name"))
+
+        // <!-- https://jsfiddle.net/cferdinandi/qgpxvhhb/18/ -->
+        // Show an element
+        var show = function (elem) {
+
+            // Get the natural height of the element
+            var getHeight = function () {
+                elem.style.display = 'block'; // Make it visible
+                var height = elem.scrollHeight + 'px'; // Get it's height
+                elem.style.display = ''; //  Hide it again
+                return height;
+            };
+
+            var height = getHeight(); // Get the natural height
+            elem.classList.add('is-visible'); // Make the element visible
+            elem.style.height = height; // Update the max-height
+
+            // Once the transition is complete, remove the inline max-height so the content can scale responsively
+            window.setTimeout(function () {
+                elem.style.height = '';
+            }, 350);
+
+        };
+
+        // Hide an element
+        var hide = function (elem) {
+
+            // Give the element a height to change from
+            elem.style.height = elem.scrollHeight + 'px';
+
+            // Set the height back to 0
+            window.setTimeout(function () {
+                elem.style.height = '0';
+            }, 1);
+
+            // When the transition is complete, hide it
+            window.setTimeout(function () {
+                elem.classList.remove('is-visible');
+            }, 350);
+
+        };
+
+        // Toggle element visibility
+        var toggle = function (elem, timing) {
+
+            // If the element is visible, hide it
+            if (elem.classList.contains('is-visible')) {
+                hide(elem);
+                return;
+            }
+
+            // Otherwise, show it
+            show(elem);
+            
+        };
+
+        // Listen for click events
+        document.addEventListener('click', function (event) {
+
+            // Make sure clicked element is our toggle
+            if (!event.target.classList.contains('toggle')) return;
+
+            // Prevent default link behavior
+            event.preventDefault();
+
+            // Get the content
+            var content = document.querySelector(event.target.hash);
+            if (!content) return;
+
+            // Toggle the content
+            toggle(content);
+            console.log("clicked.")
+        }, false);
     </script>
     <style>
         body {
             margin: 0;
             padding: 0;
+            user-select: none;
         }
         #parent_ {
             padding: 128px 0;
@@ -79,6 +207,58 @@
 
         em {
             font-family: 'Hedvig Letters Serif';
+        }
+
+        blockquote {
+            font-size: 1.2em;
+            line-height: 1.2em;
+        }
+        
+        blockquote:before {
+          content: open-quote;
+        }
+        
+        blockquote:after {
+          content: close-quote;
+        }
+        
+        blockquote:before,
+        blockquote:after {
+          display: inline-block;
+          vertical-align: bottom;
+          color: rgb(223, 223, 223);
+          font-size: 4em;
+          top: .2em;
+          position: relative;
+        }
+
+        .quote_ {
+            box-sizing: border-box;
+            background-color: rgb(243, 243, 243);
+            padding: 16px;
+            border-radius: 8px;
+        }
+
+        .toggle-content {
+            display: none;
+            height: 0;
+            overflow: hidden;
+            transition: height 350ms ease-in-out;
+        }
+
+        .toggle-content div {
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        .toggle-content div img {
+            border-radius: 8px;
+            object-fit: cover;
+        }
+        
+        .toggle-content.is-visible {
+            display: block;
+            height: auto;
         }
 
         .anchorlink {
