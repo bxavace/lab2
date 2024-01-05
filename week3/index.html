@@ -22,7 +22,15 @@
         </div>
         <div>
             <div class="name"></div>
-            <p>is a <em>back-end developer</em>, <em>researcher</em>, and <em>computer science student</em>.</p>
+            <div class="lighting-theme">
+                <button id="themeToggleBtn">Dark mode</button>
+            </div>
+            <h1 class="name-text">Brylle Ace Nuñez</h1>
+            <div>
+                <!-- <img src="img/pngtree-statue-of-marcus-aurelius-vintage-illustration-statue-sitting-illu-vector-picture-image_10154516.png" alt="statue" style="position: absolute; width: 20%; opacity: 0.4; right: 30%; top: 10%;"> -->
+                <img src="img/1200px-Michelangelo's_Pieta_5450_cut_out.png" alt="Pieta" style="position: absolute; width: 20%; opacity: 0.9; right: 30%; top: 10%;">
+            </div>
+            <p class="about-text-name">is a <em>back-end developer</em>, <em>researcher</em>, and <em>computer science student</em>.</p>
         </div>
         <div>
             <p>Computer Science '26 @ Asia Pacific College 🐏</p>
@@ -109,7 +117,7 @@ security.
 
         var scope = blotter.forText(text);
 
-        scope.appendTo(document.querySelector(".name"))
+        <!-- scope.appendTo(document.querySelector(".name")) -->
 
         // <!-- https://jsfiddle.net/cferdinandi/qgpxvhhb/18/ -->
         // Show an element
@@ -238,12 +246,24 @@ security.
 
         genBlobs();
 
+        const body = document.body;
+        const themeToggleBtn = document.getElementById('themeToggleBtn');
+    
+        themeToggleBtn.addEventListener('click', () => {
+          if (body.classList.contains('dark-mode')) {
+            body.classList.remove('dark-mode');
+          } else {
+            body.classList.add('dark-mode');
+          }
+        });
+
     </script>
     <style>
         body {
             margin: 0;
             padding: 0;
             user-select: none;
+            transition: background-color 0.2s, color 0.2s;
         }
         #parent_ {
             padding: 128px 0;
@@ -262,6 +282,10 @@ security.
 
         h1 {
             font-weight: 600;
+        }
+
+        .name-text {
+            font-size: 2.4rem;
         }
 
         em {
@@ -325,7 +349,7 @@ security.
         }
 
         .card {
-        width: 100vw;
+        width: 50vw;
         height: 100vh;
         /* box-shadow: 0 7px 30px -10px rgba(150, 170, 180, 0.5);
         border-radius: 10px; */
@@ -343,8 +367,8 @@ security.
 
         .card > .blob {
         background: #ff3935;
-        height: 18%;
-        width: 22%;
+        height: 12%;
+        width: 20%;
         border-radius: 100%;
         filter: blur(15px);
           /* mix-blend-mode: multiply;
@@ -352,5 +376,28 @@ security.
         position: absolute;
         }
 
+        @media (prefers-color-scheme: light), (prefers-color-scheme: no-preference) {
+            body {
+              background-color: #ffffff;
+              color: #000000;
+            }
+          }
+      
+        @media (prefers-color-scheme: dark) {
+            body {
+              background-color: #1a1a1a;
+              color: #ffffff;
+            }
+          }
+
+          .dark-mode {
+            background-color: #1a1a1a;
+            color: #ffffff;
+          }
+
+          .dark-mode .quote_ {
+            background-color: #1a1a1a;
+            color: #ffffff;
+          }
     </style>
 </html>
