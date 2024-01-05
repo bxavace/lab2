@@ -23,7 +23,9 @@
         <div>
             <div class="name"></div>
             <div class="lighting-theme">
-                <button id="themeToggleBtn">Dark mode</button>
+                <button id="themeToggleBtn">
+                    ☀️
+                </button>
             </div>
             <h1 class="name-text">Brylle Ace Nuñez</h1>
             <div>
@@ -251,8 +253,10 @@ security.
     
         themeToggleBtn.addEventListener('click', () => {
           if (body.classList.contains('dark-mode')) {
+            themeToggleBtn.innerHTML = '☀️';
             body.classList.remove('dark-mode');
           } else {
+            themeToggleBtn.innerHTML = '🌙';
             body.classList.add('dark-mode');
           }
         });
@@ -399,5 +403,26 @@ security.
             background-color: #1a1a1a;
             color: #ffffff;
           }
+
+          button#themeToggleBtn {
+            background-color: #ffffff;
+            color: #000000;
+            border: 1px solid #1a1a1a;
+            border-radius: 7px;
+            padding: 5px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: background-color 0.2s, color 0.2s;
+          }
+
+         button#themeToggleBtn:hover {
+            background-color: #1a1a1a;
+            color: #ffffff;
+         }
+
+         .lighting-theme {
+            display: flex;
+            justify-content: flex-end;
+         }
     </style>
 </html>
