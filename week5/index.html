@@ -111,6 +111,9 @@ security.
                 </figure>
             </div>
         </div>
+        <div class="footer">
+            made with <span style="color: crimson;">❤️</span> by Brylle Ace Nuñez &copy; <span id="year"></span>
+        </div>
     </div>
     <div class="card">
         <!-- <div class="blob"></div> -->
@@ -315,6 +318,9 @@ security.
             const randomFact = facts[Math.floor(Math.random() * facts.length)];
             fact.innerHTML = randomFact;
         });
+
+        const year = document.getElementById('year');
+        year.innerHTML = new Date().getFullYear();
     </script>
     <style>
         body {
@@ -557,6 +563,10 @@ security.
 
         button:hover {
             background-color: rgb(202, 20, 57);
+        }
+
+        .footer {
+            font-family: inherit;
         }
     </style>
 </html>
