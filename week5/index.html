@@ -69,10 +69,21 @@ security.
                 <br>
                 Besides, working with back-end systems is a lot of <em>fun</em>. And back-end involves a lot of security!
             </p>
-            <h3>Miscellaneous</h3>
-            <p>
-                I like to listen to tranquil classical music while working. I onced played guitar, and now I'm interested in playing the piano and violin! I play <em>League of Legends</em> in my free time. I also like to read non-fiction and fiction books. I also hit the gym (hmu please.)!
-            </p>
+            <div class="misc_">
+                <div class="misc_item">
+                    <h3>Miscellaneous</h3>
+                    <p>
+                        I like to listen to tranquil classical music while working. I onced played guitar, and now I'm interested in playing the piano and violin! I play <em>League of Legends</em> in my free time. I also like to read non-fiction and fiction books. I also hit the gym (hmu please.)!
+                    </p>
+                </div>
+                <div class="misc_item">
+                    <div class="card-generate-facts">
+                        <h3>Random Facts</h3>
+                        <p id="fact">Wanna know more about me?</p>
+                        <button id="generateFactBtn">Generate</button>
+                    </div>
+                </div>
+            </div>
             <div>
                 <h3>Now playing...</h3>
                 <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/3CtnuBSfdpoxHglOGGPgmU?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
@@ -254,11 +265,12 @@ security.
 
         genBlobs();
 
+        // theme toggle
         const body = document.body;
         const themeToggleBtn = document.getElementById('themeToggleBtn');
-    
         themeToggleBtn.addEventListener('click', () => {
-          if (body.classList.contains('dark-mode')) {
+        const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          if (body.classList.contains('dark-mode') || prefersDarkMode) {
             themeToggleBtn.innerHTML = '☀️';
             themeToggleBtn.style.backgroundColor = '#ffffff';
             body.classList.remove('dark-mode');
@@ -269,6 +281,38 @@ security.
           }
         });
 
+        const facts = [
+            "Le Carnaval des Animaux, R. 125: 13. Le Cygne is the GOAT!",
+            "My Ghibli movie is Kiki's Delivery Service.",
+            "I love Sinigang (except for the fish variant).",
+            "I main Kled in League of Legends.",
+            "The highest rank I got in LoL Diamond 4.",
+            "I like Christmas Songs!",
+            "My favorite season is summer.",
+            "My favorite weather is sunny and windy! (NOT cloudy.)",
+            "My favorite number is 43.",
+            "I am was a big fan of Facebook MMOs.",
+            "I code in Python, Go, C, and JavaScript!",
+            "I idolize Steve Jobs.",
+            "My TOTGA is De La Salle University.",
+            "I love racing games -- especially Need for Speed!",
+            "My favorite color is green and gray.",
+            "Pasilyo is currently my favorite Filipino song.",
+            "I dream of traveling to Italy. 🇮🇹",
+            "I am at 900+ day streak on Duolingo! 😎",
+            "My favorite TV shows are Modern Family and Family Guy.",
+            "I'm a huge Apple fanboy. 🍎",
+            "The first ever game I ever played on Android (circa 2010) was Angry Birds.",
+            "The image above is Pieta by Michelangelo!",
+            "I am a transcendentalist."
+        ]
+
+        const generateFactBtn = document.getElementById('generateFactBtn');
+        const fact = document.getElementById('fact');
+        generateFactBtn.addEventListener('click', () => {
+            const randomFact = facts[Math.floor(Math.random() * facts.length)];
+            fact.innerHTML = randomFact;
+        });
     </script>
     <style>
         body {
@@ -475,5 +519,42 @@ security.
             width: 100%;
             height: 100%;
          }
+
+         .misc_ {
+            display: grid;
+            grid-template-columns: 50% 50%;
+            width: 100%;
+        }
+
+        .misc_item {
+            width: 100%;
+        }
+
+        .card-generate-facts {
+            border: 1px solid crimson;
+            border-radius: 0.45rem;
+            padding: 20px;
+            width: 70%;
+        }
+
+        .card-generate-facts #fact {
+            height: 2rem;
+        }
+
+        button {
+            font-family: inherit;
+            background-color: crimson;
+            color: #ffffff;
+            border: 1px solid crimson;
+            border-radius: 7px;
+            padding: 8px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        button:hover {
+            background-color: rgb(202, 20, 57);
+        }
     </style>
 </html>
