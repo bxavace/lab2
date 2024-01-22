@@ -87,8 +87,10 @@ security.
             </div>
             <div>
                 <h3>Now playing...</h3>
-                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/3CtnuBSfdpoxHglOGGPgmU?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-                <span>Not loading? <a class="anchorlink" href="https://open.spotify.com/track/3CtnuBSfdpoxHglOGGPgmU?si=8e9e9e9e9e9e9e9e" target="_blank">Yasashisa ni Tsutsumareta Nara is the outro song in Kiki's Delivery Service composed and performed by Yumi Arai.</a></span>
+                <!-- <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/3CtnuBSfdpoxHglOGGPgmU?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe> -->
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/2LlOeW5rVcvl3QcPNPcDus?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                <!-- <span>Not loading? <a class="anchorlink" href="https://open.spotify.com/track/3CtnuBSfdpoxHglOGGPgmU?si=8e9e9e9e9e9e9e9e" target="_blank">Yasashisa ni Tsutsumareta Nara is the outro song in Kiki's Delivery Service composed and performed by Yumi Arai.</a></span> -->
+                <span>Not loading? <a class="anchorlink" href="https://open.spotify.com/track/2LlOeW5rVcvl3QcPNPcDus?si=0855f44ebddf4507">Play it in spotify!</a></span>
             </div>
             <!-- <h3>Favorite Paolo Coelho Quote</h3>
             <div class="quote_">
@@ -99,10 +101,12 @@ security.
 
             <h3>Random Quote</h3>
             <div class="quote_">
-                <blockquote>
-                    <em id="quote"></em>
-                </blockquote>
-                <em id="author"></em>
+                <div>
+                    <blockquote>
+                        <em id="quote"></em>
+                    </blockquote>
+                </div>
+                <div id="author"></div>
             </div>
         <h3>
             <a class="anchorlink toggle" href="#dogs">Click me, if you dare!</a>
@@ -156,6 +160,7 @@ security.
 
         // <!-- https://jsfiddle.net/cferdinandi/qgpxvhhb/18/ -->
         // Show an element
+        // Function application Javascript
         var show = function (elem) {
 
             // Get the natural height of the element
@@ -413,6 +418,10 @@ security.
             background-color: rgb(243, 243, 243);
             padding: 30px;
             border-radius: 8px;
+            /* center the children */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .toggle-content {
@@ -597,10 +606,6 @@ security.
             font-family: inherit;
             font-size: 0.95rem;
             text-align: center;
-        }
-
-        em#author {
-            float: right;
         }
     </style>
 </html>
