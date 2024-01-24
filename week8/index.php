@@ -49,7 +49,7 @@
                         }
                     ?>
                     <h1 class="name-text">Brylle Ace Nuñez</h1>
-                    <p class="about-text-name">is a <em>back-end developer</em>, <em>researcher</em>, and <em>computer science student</em>.</p>
+                    <p class="about-text-name">is a <em>back-end developer</em>, <em>researcher</em>, and <em>computer science student</em>.<img src="img/flag.gif" alt="ph" width="35px" style="display: inline;"/></p>
                 </div>
                 <div>
                     <p>Computer Science '26 @ Asia Pacific College 🐏</p>
@@ -146,7 +146,7 @@ security.
         <div class="gifcities">
             <!-- array lesson - php -->
             <?php 
-                $gifs = array("img/macintoshwks.gif","img/Site-07_microsoft.gif", "img/BestViewedOnMacintosh_ani.gif", "img/msce.gif", "img/sonic.gif");
+                $gifs = array("img/macintoshwks.gif","img/Site-07_microsoft.gif", "img/BestViewedOnMacintosh_ani.gif", "img/msce.gif", "img/sonic.gif", "img/Killer_Virus.gif", "img/I_Google.gif", "img/googleeye.gif", "img/software_programmer.gif");
                 foreach ($gifs as $gif) {
                     echo "<img src='$gif' alt='gif'>";
                 }
