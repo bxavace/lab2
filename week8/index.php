@@ -30,6 +30,24 @@
             <div class="sec1">
                 <div>
                     <div class="name"></div>
+                    <!-- An application of PHP concepts (1 commit): variables, conditionals, operations, date, echo. -->
+                    <?php 
+                        // get current hour
+                        date_default_timezone_set('Asia/Hong_Kong');
+                        $date = date("H");
+                        if ($date < "12") {
+                            echo "<p class='about-text'>Buon giorno! 🌞</p>";
+                        } else
+                        if ($date >= "12" && $date < "17") {
+                            echo "<p class='about-text'>Buon pomeriggio! 🌤️</p>";
+                        } else
+                        if ($date >= "17" && $date < "19") {
+                            echo "<p class='about-text'>Buona sera! 🌇</p>";
+                        } else
+                        if ($date >= "19") {
+                            echo "<p class='about-text'>Buona notte! 🌙</p>";
+                        }
+                    ?>
                     <h1 class="name-text">Brylle Ace Nuñez</h1>
                     <p class="about-text-name">is a <em>back-end developer</em>, <em>researcher</em>, and <em>computer science student</em>.</p>
                 </div>
