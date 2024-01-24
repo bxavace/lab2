@@ -143,6 +143,15 @@ security.
                 </figure>
             </div>
         </div>
+        <div class="gifcities">
+            <!-- array lesson - php -->
+            <?php 
+                $gifs = array("img/macintoshwks.gif","img/Site-07_microsoft.gif", "img/BestViewedOnMacintosh_ani.gif", "img/msce.gif", "img/sonic.gif");
+                foreach ($gifs as $gif) {
+                    echo "<img src='$gif' alt='gif'>";
+                }
+            ?>
+        </div>
         <div class="footer">
             made with <span style="color: var(--color);">❤️</span> by <a class="anchorlink" href="https://github.com/bxavace" target="_blank">Brylle Ace Nuñez</a> &copy; <span id="year"></span>
         </div>
