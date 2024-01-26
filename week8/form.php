@@ -7,7 +7,12 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div>
+    <div class="parent_">
+        <div class="nav">
+            <a href="index.php">
+                <button>Back to home</button>
+            </a>
+        </div>
             <?php
                 // define variables and set to empty values
                 $nameErr = $emailErr  = "";
@@ -67,12 +72,14 @@
         </div>
 </body>
 <style>
+
+
     .formdiv {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        height: 95vh;
+        height: 100%;
     }
 
     body {

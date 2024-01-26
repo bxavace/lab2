@@ -18,6 +18,9 @@
     <div class="bg-noise"></div>
     <div id="parent_">
         <div class="nav">
+            <a href="form.php">
+                <button>Contact Me</button>
+            </a>
         </div>
         <div class="lighting-theme">
             <button id="themeToggleBtn">
