@@ -67,6 +67,16 @@
                     </form>
                 </div>
         </div>
+        <div>
+            <?php
+                echo "<h2>Your Input:</h2>";
+                echo $name;
+                echo "<br>";
+                echo $email;
+                echo "<br>";
+                echo $message;
+            ?>
+        </div>
         <div class="footer">
             made with <span style="color: var(--color);">❤️</span> by <a class="anchorlink" href="https://github.com/bxavace" target="_blank">Brylle Ace Nuñez</a> &copy; <span id="year"></span>
         </div>
