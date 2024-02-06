@@ -15,10 +15,16 @@
         </div>
         <h1>Dear Brylle...</h1>
         <?php 
+            // $servername = "localhost";
+            // $username = "root";
+            // $password = "";
+            // $dbname = "mydb";
+
             $servername = "localhost";
-            $username = "root";
-            $password = "";
-            $dbname = "mydb";
+            $username = "webprogmi222_sf221";
+            $password = "xE*Y2nleNVvZm[!!";
+            $dbname = "webprogmi222_sf221";
+
             $conn = new mysqli($servername, $username, $password, $dbname);
             if ($conn->connect_error) {
                 die("Connection failed: " . $conn->connect_error);
