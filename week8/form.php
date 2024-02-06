@@ -15,8 +15,9 @@
         </div>
             <?php
                 // define variables and set to empty values
-                $nameErr = $emailErr  = "";
-                $name = $email = $message = "";
+                $nameErr = $emailErr = $genderErr = "";
+                $name = $email = $message = $website = "";
+                $gender = "";
 
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     if (empty($_POST["name"])) {
@@ -44,6 +45,22 @@
                     } else {
                         $message = test_input($_POST["message"]);
                     }
+
+                    if (empty($_POST["website"])) {
+                        $website = "";
+                    } else {
+                        $website = test_input($_POST["website"]);
+                    }
+
+                    if (empty($_POST["gender"])) {
+                        $genderErr = "Gender is required";
+                    } else {
+                        $gender = test_input($_POST["gender"]);
+                        // validate gender value
+                        if (!in_array($gender, ["M", "F", "O"])) {
+                            $genderErr = "Invalid gender value";
+                        }
+                    }
                 }
 
                 function test_input($data) {
@@ -59,23 +76,50 @@
                     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">  
                     Name: <span class="error">* <?php echo $nameErr;?></span> <input type="text" name="name" value="<?php echo $name;?>">
                     <br><br>
+                    Gender: <span class="error">* <?php echo $genderErr;?></span>
+                    <input type="radio" name="gender" value="F" <?php if($gender == "F") echo "checked"; ?>> Female
+                    <input type="radio" name="gender" value="M" <?php if($gender == "M") echo "checked"; ?>> Male
+                    <input type="radio" name="gender" value="O" <?php if($gender == "O") echo "checked"; ?>> Other
+                    <br><br>
                     E-mail: <span class="error">* <?php echo $emailErr;?></span><input type="text" name="email" value="<?php echo $email;?>">
+                    <br><br>
+                    Website: <input type="text" name="website" value="<?php echo $website;?>">
                     <br><br>
                     Message: <textarea name="message" rows="5" cols="40"><?php echo $message;?></textarea>
                     <br><br>
                     <button type="submit" name="submit">Submit</button>
                     </form>
+                    <div>
+                        <?php
+                            // $servername = "localhost";
+                            // $username = "root";
+                            // $password = "";
+                            // $dbname = "myDB";
+
+                            $servername = "localhost";
+                            $username = "webprogmi222_sf221";
+                            $password = "xE*Y2nleNVvZm[!!";
+                            $dbname = "webprogmi222_sf221";
+                            
+                            // Create connection
+                            $conn = new mysqli($servername, $username, $password, $dbname);
+                            // Check connection
+                            if ($conn->connect_error) {
+                              die("Connection failed: " . $conn->connect_error);
+                            }
+                            
+                            $sql = "INSERT INTO MyGuests (name, email, website, message, gender)
+                            VALUES ('$name', '$email', '$website', '$message', '$gender')";
+                            
+                            if ($conn->query($sql) === TRUE) {
+                              echo "Thanks for reaching out! I'll get back to you as soon as possible.";
+                            } else {
+                              echo "Error: " . $sql . "<br>" . $conn->error;
+                            }
+                            $conn->close();
+                        ?>
+                    </div>
                 </div>
-        </div>
-        <div>
-            <?php
-                echo "<h2>Your Input:</h2>";
-                echo $name;
-                echo "<br>";
-                echo $email;
-                echo "<br>";
-                echo $message;
-            ?>
         </div>
         <div class="footer">
             made with <span style="color: var(--color);">❤️</span> by <a class="anchorlink" href="https://github.com/bxavace" target="_blank">Brylle Ace Nuñez</a> &copy; <span id="year"></span>
